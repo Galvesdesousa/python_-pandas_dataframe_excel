@@ -7,7 +7,8 @@ def criar_dataframe():
 
 def adicionar_dados(df, nome, idade, sexo):
     # Adicionando uma nova linha ao DataFrame
-    df = df.append({'Nome': nome, 'Idade': idade, 'Sexo': sexo}, ignore_index=True)
+    new_row = pd.DataFrame({'Nome': [nome], 'Idade': [idade], 'Sexo': [sexo]})
+    df = pd.concat([df, new_row], ignore_index=True)
     return df
 
 def filtrar_dados(df, coluna, valor):
@@ -16,9 +17,9 @@ def filtrar_dados(df, coluna, valor):
     return df_filtrado
 
 def exportar_para_excel(df, nome_arquivo):
-    # Exportando o DataFrame para um arquivo Excel
-    df.to_excel(nome_arquivo, index=False)
-    print(f"DataFrame exportado para '{nome_arquivo}' com sucesso!")
+    # Exportando o DataFrame para um arquivo Excel usando 'xlsxwriter' como engine
+    df.to_excel(nome_arquivo + ".xlsx", index=False, engine='xlsxwriter')
+    print(f"DataFrame exportado para '{nome_arquivo}.xlsx' com sucesso!")
 
 def main():
     # Criar um DataFrame vazio
