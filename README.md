@@ -3,12 +3,16 @@ This Python script allows users to create, manage, filter, and export data from 
 
 Features
 Add Data: Users can add new data entries to the DataFrame.
+
 Filter Data: Users can filter the DataFrame based on specific column values.
+
 Export to Excel: Users can export the DataFrame to an Excel file.
 
 Requirements
 Python 3.x
+
 pandas library
+
 xlsxwriter library
 
 Installation
